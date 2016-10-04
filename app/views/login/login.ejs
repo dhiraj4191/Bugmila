@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title> <%=title%> </title>
+	</head>
+	<body >
+		<form method="post" action="/userlogin">
+			<table>
+				<tr>
+					<td rowspan=4>
+						<img src="img/bugmila.jpg"></img>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					    	<label>Username:</label>
+					</td>
+					<td>
+					    	<input type="text" name="username">
+					</td>
+				</tr>
+				<tr>
+					<td>
+					    	<label>Password:</label>
+					</td>
+					<td>
+					    	<input type="password" name="password">
+					</td>
+				</tr>
+				<tr colspan=2 align ='right'>
+					<td>
+						<input type="submit" value="Login">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label><%=loginmesg%></label>
+					</td>
+				</tr>
+			</table>
+
+		</form>
+	</body>
+</html>
