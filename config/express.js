@@ -8,15 +8,17 @@ module.exports = function() {
     app.use(bodyParser.json());
     // parse various different custom JSON types as JSON 
     app.use(bodyParser.json({ type: 'application/*+json' }));
-     
+    
     // parse some custom thing into a Buffer 
     app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
-     
+
     // parse an HTML body into a string 
     app.use(bodyParser.text({ type: 'text/html' }));
     app.set('views', './app/views');
     app.set('view engine', 'ejs');
     app.use(route);
-    app.use(express.static('./public'));
+    app.use('/', express.static(path.join(__dirname, '../client')));
+    app.use('/public', express.static(path.join(__dirname, '../public')));
+    app.use('/bower_components', express.static(path.join(__dirname, '../bower_components')));
     return app;
 };
