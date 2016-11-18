@@ -1,0 +1,38 @@
+<md-dialog aria-label="list dialog" layout-align="center center" layout="column" flex="40">
+		<form style="overflow: visible;" layout="column" flex>
+			<div layout="row" flex>
+			<md-toolbar layout-align="center center" flex>User Name</md-toolbar>
+			</div>
+			<md-input-container class="md-block">
+				<label>User Id</label>
+				<input name="userid" ng-model="userData.userid" ng-disabled="true" readonly required>
+			</md-input-container>
+			<md-input-container class="md-block">
+				<label>Login id</label>
+				<input name="loginid" ng-model="userData.loginid" ng-disabled="true" readonly required>
+			</md-input-container>
+			<md-input-container class="md-block">
+				<label>First Name</label>
+				<input name="fname" ng-model="userData.name.firstname" required>
+			</md-input-container>
+			<md-input-container class="md-block">
+                <label>Last Name</label>
+                <input name="lname" ng-model="userData.name.lastname">
+         	</md-input-container>
+         	<md-input-container>
+                <label>Role</label>
+                <md-select placeholder="User Role" ng-init="userData.role = roles[userData.role.roleid]" ng-model="userData.role" style="min-width: 200px;" required>
+                  <md-option  ng-value="role" ng-repeat="role in roles">{{role.rolename}}</md-option>
+                </md-select>
+             </md-input-container>
+         	<div class="form-group" layout="row">
+               <label class="col-md-4 control-label"></label>
+               <div class="col-md-4">
+                 <md-button class="md-raised md-primary" ng-click="updateUser()">Update</md-button>
+               </div>
+               <div class="col-md-4">
+                 <md-button class="md-raised md-primary" ng-click="cancle()">Cancle</md-button>
+               </div>
+            </div>
+		</form>
+</md-dialog>

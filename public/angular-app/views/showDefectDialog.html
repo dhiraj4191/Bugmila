@@ -1,0 +1,36 @@
+<md-dialog aria-label="list dialog" layout-align="center center" layout="column" flex="40">
+		<form style="overflow: visible;" layout="column" flex>
+			<div layout="row" flex>
+			<md-toolbar layout-align="center center" flex>Defect Details</md-toolbar>
+			</div>
+			<md-input-container class="md-block">
+				<label>Defect Id</label>
+				<input name="defectid" ng-model="defectData.defectid" ng-disabled="true" readonly required>
+			</md-input-container>
+			<md-input-container class="md-block">
+				<label>Defect Name</label>
+				<input name="defectname" ng-model="defectData.defectname" required>
+			</md-input-container>
+         	<md-input-container>
+                <label>Assigned To</label>
+                <md-select ng-init="defectData.owner = defectData.owner" placeholder="Assigned to" ng-model="defectData.owner" style="min-width: 200px;" ng-disabled="true" required>
+                  <md-option  ng-value="user.userid" ng-repeat="user in userList | dropDownFilter : 'Developer'" >{{user.name.firstname}} {{user.name.lastname}}</md-option>
+                </md-select>
+             </md-input-container>
+             <md-input-container>
+                <label>Status</label>
+                <md-select ng-init="defectData.status = defectData.status" placeholder="status" ng-model="defectData.status" style="min-width: 200px;" required>
+                  <md-option  ng-value="status" ng-repeat="status in statusList">{{status}}</md-option>
+                </md-select>
+             </md-input-container>
+         	<div class="form-group" layout="row">
+               <label class="col-md-4 control-label"></label>
+               <div class="col-md-4">
+                 <md-button class="md-raised md-primary" ng-click="updateDefect()">Update</md-button>
+               </div>
+               <div class="col-md-4">
+                 <md-button class="md-raised md-primary" ng-click="cancle()">Cancle</md-button>
+               </div>
+            </div>
+		</form>
+</md-dialog>

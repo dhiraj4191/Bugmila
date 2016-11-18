@@ -1,0 +1,59 @@
+
+<div class="maincontainer" layout="column" layout-padding flex>
+ <div class="innercontainer" layout="row"   flex>
+    <div class="rightcontainer" layout="column" layout-padding>
+       <md-toolbar layout-align="center center" class="md-whiteframe-4dp">
+          <h1>Admin</h1>
+       </md-toolbar>
+       <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-is-locked-open="true" flex layout-x>
+          <md-button ng-click="viewUsers()" class="md-primary">
+              View Users
+          </md-button>
+          <md-button ng-click="addUser()" class="md-primary">
+              Add User
+          </md-button>
+          <md-button ng-click="addRole()" class="md-primary">
+              Add Role
+          </md-button>
+          <md-button ng-click="logout()" class="md-raised md-warn">
+              Logout
+          </md-button>
+       </md-sidenav>
+    </div>
+    <div class="leftcontainer" layout-align="center center" layout-padding flex>
+       <md-toolbar layout-align="center center">
+          <h1>Bugmila</h1>
+       </md-toolbar>
+       <md-content class="md-whiteframe-4dp" layout-align="center center" layout-padding flex ui-view>	
+          <md-content class="md-whiteframe-4dp" layout-align="center center"  layout-padding flex>
+              <md-toolbar layout="row" class="md-theme-light">
+              <div class="md-toolbar-tools">
+                <h2 class="md-toolbar-tools">
+                  <span>User List</span>
+                </h2>
+              </div>
+            </md-toolbar>
+            <md-content layout="column" >
+              <md-list id="popupContainer" layout-align="center center" flex>
+                <md-list-item ng-repeat="x in inbox" ng-click="showUsers($event, x.userid)" flex>
+                  <div class="md-list-item-text" layout="row" layout-align="center center" layout-padding flex>
+                    <h4 flex>{{x.userid}}</h4>
+                    <h4 flex>{{x.name.firstname}} {{x.name.lastname}}</h4>
+                    <h4 flex>{{x.loginid}}</h4>
+                    <h4 flex>{{x.role.rolename}}</h4>
+                    <h4 flex>{{inbox[x.createdby].name.firstname}} {{inbox[x.createdby].name.lastname}}</h4>
+                    <div class="form-group" >
+                       <label class="col-md-4 control-label"></label>
+                       <div class="col-md-4">
+                         <md-button class="md-raised md-primary" ng-click="deleteUser(x.userid)">Delete</md-button>
+                       </div>
+                     </div>
+                  </div>
+                </md-list-item>
+              </md-list>
+            </md-content>
+        </md-content>
+       </md-content>
+    </div>
+ </div>
+</div>

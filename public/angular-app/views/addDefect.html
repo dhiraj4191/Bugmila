@@ -1,0 +1,29 @@
+
+          <form name="addUserForm">
+             <md-input-container class="md-block">
+                <label>Defect Name</label>
+                <input name="defectname" ng-model="addDefectData.defectname" required>
+                <div ng-messages="addDefectData.defectname.$error">
+                   <div ng-message="required">Defect Name is required.</div>
+                </div>  
+             </md-input-container>
+             <md-input-container>
+                <label>Assigned To</label>
+                <md-select placeholder="Assigned To" ng-model="addDefectData.owner" style="min-width: 200px;" required>
+                  <md-option  ng-value="owner.userid" ng-repeat="owner in users | dropDownFilter : 'Developer'">{{owner.name.firstname}} {{owner.name.lastname}}</md-option>
+                </md-select>
+             </md-input-container>
+             <md-input-container>
+                <label>Status</label>
+                <md-select ng-init="addDefectData.status = 'Open'"  placeholder="Defect Status" ng-model="addDefectData.status" style="min-width: 200px;" ng-disabled="true" readonly required>
+                  <md-option  ng-value="state" ng-repeat="state in status">{{state}}</md-option>
+                </md-select>
+             </md-input-container>
+             <div class="form-group">
+               <label class="col-md-4 control-label"></label>
+               <div class="col-md-4">
+                 <md-button class="md-raised md-primary" ng-click="saveDefect()">Save</md-button>
+               </div>
+             </div>
+          </form>
+        </div>

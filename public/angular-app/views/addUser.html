@@ -1,0 +1,46 @@
+  <md-content class="md-whiteframe-4dp" layout-align="center center" layout-padding flex>
+          <md-toolbar layout="row" class="md-theme-light">
+          <div class="md-toolbar-tools">
+            <h2 class="md-toolbar-tools">
+              <span>Add User</span>
+            </h2>
+          </div>
+        </md-toolbar>
+          <form name="addUserForm">
+             <md-input-container class="md-block">
+                <label>First Name</label>
+                <input name="fname" ng-model="addUserData.fname" required>
+                <div ng-messages="addUserForm.fname.$error">
+                   <div ng-message="required">First Name is required.</div>
+                </div>
+             </md-input-container>
+             <md-input-container class="md-block">
+                <label>Last Name</label>
+                <input name="lname" ng-model="addUserData.lname">
+             </md-input-container>
+             <md-input-container class="md-block">
+                <label>Login Id</label>
+                <input name="loginid" ng-model="addUserData.loginid">
+             </md-input-container>
+             <md-input-container class="md-block">
+                <label>Password</label>
+                <input type="password" name="Password" ng-model="addUserData.password" required>
+                <div ng-messages="addUserForm.Password.$error">
+                   <div ng-message="required">Password is required.</div>
+                </div>
+             </md-input-container>
+
+             <md-input-container>
+                <label>Role</label>
+                <md-select placeholder="User Role" ng-model="addUserData.role" style="min-width: 200px;" required>
+                  <md-option  ng-value="role.roleid" ng-repeat="role in roles">{{role.rolename}}</md-option>
+                </md-select>
+             </md-input-container>
+             <div class="form-group">
+               <label class="col-md-4 control-label"></label>
+               <div class="col-md-4">
+                 <md-button class="md-raised md-primary" ng-click="saveUser()">Add User</md-button>
+               </div>
+             </div>
+          </form>
+    </md-content>

@@ -1,0 +1,31 @@
+         <md-toolbar layout-align="center center">
+            <h1>Bugmila</h1>
+         </md-toolbar>
+         <div id="container" layout="row"  ng-controller="LoginController as lctrl" flex>
+            <md-content id="content" layout="column" layout-align="center center" layout-padding flex>
+               <div layout="column" layout-align="center center">
+                  <md-toolbar class="md-warm" layout-align="center center" >Login here!!!</md-toolbar>
+                  <div class="md-whiteframe-2dp">
+                     <md-content class="md-padding">
+                        <form name="loginForm">
+                              <md-input-container class="md-block">
+                                 <label>User Name</label>
+                                 <input name="userName" ng-model="loginData.userName" required>
+                                 <div ng-messages="loginForm.userName.$error" md-auto-hide="false">
+                                    <div ng-message="required">Username is required.</div>
+                                 </div>
+                              </md-input-container>
+                              <md-input-container class="md-block">
+                                 <label>Password</label>
+                                 <input name="password" type="password" ng-model="loginData.password" required>
+                                 <div ng-messages="loginForm.password.$error">
+                                    <div ng-message-exp="['required', 'minlength', 'maxlength']">Password is required.</div>
+                                 </div>
+                              </md-input-container>
+                              <md-button class="md-raised md-primary" ng-click="login()">Submit</md-button>
+                        </form>
+                     </md-content>
+                  </div>
+               </div>
+            </md-content>
+         </div>

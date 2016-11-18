@@ -1,0 +1,24 @@
+<md-content class="md-whiteframe-4dp" layout-align="center center" layout-padding flex>
+          <md-toolbar layout="row" class="md-theme-light">
+          <div class="md-toolbar-tools">
+            <h2 class="md-toolbar-tools">
+              <span>Add Role</span>
+            </h2>
+          </div>
+        </md-toolbar>
+          <form name="addRoleForm">
+             <md-input-container class="md-block">
+                <label>Role Name</label>
+                <input name="rolename" ng-model="rolename" required>
+                <div ng-messages="addRoleForm.rolename.$error">
+                   <div ng-message="required">Role Name is required.</div>
+                </div>
+             </md-input-container>
+             <div class="form-group">
+               <label class="col-md-4 control-label"></label>
+               <div class="col-md-4">
+                 <md-button class="md-raised md-primary" ng-click="saveRole()">Add User</md-button>
+               </div>
+             </div>
+          </form>
+    </md-content>

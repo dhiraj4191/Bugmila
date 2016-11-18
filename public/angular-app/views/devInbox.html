@@ -1,0 +1,42 @@
+
+<div class="maincontainer" layout="column" layout-padding flex>
+  <div class="innercontainer" layout="row" layout-padding flex>
+     <div class="rightcontainer" layout="column">
+        <md-toolbar layout-align="center center" class="md-whiteframe-4dp">
+           <h1>Developer</h1>
+        </md-toolbar>
+        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-is-locked-open="true" flex layout-padding>
+          <md-button ng-click="logout()" class="md-raised md-warn">
+              Logout
+          </md-button>      
+        </md-sidenav>
+     </div>
+    <div class="leftcontainer" flex>
+       <md-toolbar layout-align="center center">
+          <h1>Bugmila</h1>
+       </md-toolbar>
+       <md-content class="md-whiteframe-4dp md-padding">
+          <md-toolbar layout="row" class="md-theme-light">
+            <div class="md-toolbar-tools">
+              <h2 class="md-toolbar-tools">
+                <span>Defect List</span>
+              </h2>
+            </div>
+            </md-toolbar>
+            <md-content layout="column" >
+            <md-list id="popupContainer" layout-align="center center" flex>
+              <md-list-item ng-repeat="x in inbox" ng-click="showDefect($event, x.defectid)" flex>
+                <div class="md-list-item-text" layout="row" layout-align="center center" layout-padding flex>
+                  <h4 flex>{{x.defectid}}</h4>
+                  <h4 flex>{{x.defectname}}</h4>
+                  <h4 flex>{{userList[x.owner].name.firstname}} {{userList[x.owner].name.lastname}}</h4>
+                  <h4 flex>{{x.status}}</h4>
+                </div>
+              </md-list-item>
+            </md-list>
+          </md-content>
+          
+       </md-content>
+    </div>
+  </div>
+</div>

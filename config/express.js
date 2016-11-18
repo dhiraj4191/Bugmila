@@ -1,7 +1,8 @@
 var express = require('express');
+
 module.exports = function() {
     var app = express();
-    var route = require('../app/routers/login.routes');
+    var route = require('../app/routers/routes');
     var path = require ('path');
     var bodyParser = require('body-parser');
     app.use(bodyParser.urlencoded({extended: true}));
@@ -17,8 +18,13 @@ module.exports = function() {
     app.set('views', './app/views');
     app.set('view engine', 'ejs');
     app.use(route);
-    app.use('/', express.static(path.join(__dirname, '../client')));
     app.use('/public', express.static(path.join(__dirname, '../public')));
     app.use('/bower_components', express.static(path.join(__dirname, '../bower_components')));
+    app.use(require('express-promise')());
+    app.use(function(req, res){
+        res.sendfile(path.join(__dirname, '../Home.html'));
+    });
+
+
     return app;
 };
